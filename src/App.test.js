@@ -1,9 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import { mount } from "enzyme";
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+import App from "./App";
+
+it("should render hello world", () => {
+  const wrapper = mount(<App />);
+
+  expect(wrapper.contains(<h1>Hello World</h1>)).toBe(true);
 });
